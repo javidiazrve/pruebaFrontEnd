@@ -1,0 +1,30 @@
+.container {
+    max-width: 100% !important;
+    height: 90%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-solicitud {
+    max-width: 700px;
+    min-width: 300px;
+    width: 80%;
+    .card-body {
+        .titleSolicitud {
+            font-size: 40px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            font-weight: 500;
+            line-height: 50px;
+        }
+        .labelForm {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+    .btn {
+        padding: 10px;
+    }
+}

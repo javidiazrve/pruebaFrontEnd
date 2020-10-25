@@ -1,0 +1,61 @@
+.container {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin: 0 !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mat-card {
+    max-height: 700px;
+    mat-card-title {
+        margin-bottom: 30px;
+    }
+    mat-card-content {
+        max-height: 600px;
+        overflow: auto;
+        .accordion {
+            max-height: 600px;
+        }
+    }
+}
+
+.modal {
+    label {
+        margin-left: 10px;
+    }
+}
+
+.tabla-usuarios {
+    .row-header {
+        margin-bottom: 30px;
+        .col-sm {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .col-button {
+            text-align: center;
+        }
+    }
+    .row-usuario {
+        .tabla-usuario {
+            .row-value {
+                .col-sm {
+                    display: flex;
+                    align-items: center;
+                }
+                .col-button {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            .row-creditos {}
+        }
+    }
+}
+
+.col-creditos {
+    min-width: 300px;
+}

@@ -1,0 +1,79 @@
+<mat-card class="card centrado">
+    <mat-card-title>Historial de Creditos</mat-card-title>
+    <mat-card-content>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="Aprobados">
+                <div class="bodyTable">
+                    <label class="labelTitle">Creditos Aprobados</label>
+                    <app-tabla-credito [tipo]="'aprobados'" (verCredito)="mostrarCredito($event)"></app-tabla-credito>
+                </div>
+            </mat-tab>
+            <mat-tab label="Todos">
+                <div class="bodyTable">
+                    <label class="labelTitle">Creditos</label>
+                    <app-tabla-credito [tipo]="'todos'" (verCredito)="mostrarCredito($event)"></app-tabla-credito>
+                </div>
+            </mat-tab>
+            <mat-tab label="Rechazados">
+                <div class="bodyTable">
+                    <label class="labelTitle">Creditos Rechazados</label>
+                    <app-tabla-credito [tipo]="'rechazados'" (verCredito)="mostrarCredito($event)"></app-tabla-credito>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>
+
+<!-- Modal en bootstrap para mostrar info del credito -->
+
+<div class="modal fade" id="creditoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="creditoModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Informacion del Credito</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <mat-list role="list">
+                    <label>Usuario:</label>
+                    <br>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Cedula:</label>
+                        <label>{{creditoModal.cedula}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Nombre:</label>
+                        <label>{{creditoModal.nombre}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Correo:</label>
+                        <label>{{creditoModal.correo}}</label>
+                    </mat-list-item>
+                    <label>Credito:</label>
+                    <br>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Estado de credito:</label>
+                        <label>{{creditoModal.estadoDeCredito | estadoCredito}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Monto solicitado:</label>
+                        <label>{{creditoModal.valorSolicitado}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Pago de credito:</label>
+                        <label>{{creditoModal.pagoCredito | estadoPago}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista" *ngIf="creditoModal.fechaAPagar">
+                        <label>Fecha a pagar:</label>
+                        <label>{{creditoModal.fechaAPagar}}</label>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

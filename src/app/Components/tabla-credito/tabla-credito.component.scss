@@ -1,0 +1,49 @@
+.tabla {
+    width: 100%;
+    padding: 20px;
+    .labelColumna {
+        font-size: 25px !important;
+        color: black;
+        font-weight: 500;
+    }
+    .labelValor {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+fa-icon {
+    font-size: 20px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+    .tabla {
+        width: 100%;
+        padding: 20px;
+        .labelColumna {
+            font-size: 20px !important;
+            color: black;
+            font-weight: 500;
+        }
+        .labelValor {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .tabla {
+        width: 100%;
+        padding: 20px;
+        .labelColumna {
+            font-size: 15px !important;
+            color: black;
+            font-weight: 500;
+        }
+        .labelValor {
+            font-size: 10px;
+            font-weight: 500;
+        }
+    }
+}

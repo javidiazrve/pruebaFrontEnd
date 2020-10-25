@@ -1,0 +1,57 @@
+.card {
+    width: 80%;
+    max-width: 1200px;
+    height: 90%;
+    max-height: 600px;
+    mat-card-title {
+        font-size: 35px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 50px;
+    }
+    mat-card-content {
+        // overflow: auto;
+        // max-height: 500px;
+        // height: 80%;
+    }
+}
+
+.bodyTable {
+    overflow: auto;
+    max-height: 500px;
+    height: 85%;
+}
+
+.labelTitle {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.itemLista {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-left: 10px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+    .labelTitle {
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 50px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px) {
+    .labelTitle {
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 50px;
+    }
+}

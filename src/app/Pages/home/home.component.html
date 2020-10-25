@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card card-solicitud ">
+        <div class="card-body">
+            <label class="titleSolicitud"> Solicitud de credito </label>
+            <div class="form-group">
+                <label for="InputNombre" class="labelForm">Nombre</label>
+                <input type="text" [(ngModel)]="newCredito.nombre" class="form-control" id="InputNombre">
+            </div>
+            <div class="form-group">
+                <label for="InputEmail" class="labelForm">Correo Electronico</label>
+                <input type="email" [(ngModel)]="newCredito.correo" class="form-control" id="InputEmail">
+            </div>
+            <div class="form-group">
+                <label for="InputEmail" class="labelForm">Cedula</label>
+                <input type="text" [(ngModel)]="newCredito.cedula" class="form-control" id="InputCedula">
+            </div>
+            <div class="form-group">
+                <label class="labelForm"> Fecha de Pago (Opcional)</label>
+                <br>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="newCredito.fechaAPagar" [min]="hoy" placeholder="Seleccione una fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <app-input-monto-solicitud (montoSolicitudEvent)="setMonto($event)"></app-input-monto-solicitud>
+        </div>
+        <button (click)="nuevoCredito()" [disabled]="validarFormulario()" class="btn btn-primary">Solicitar Credito</button>
+    </div>
+</div>

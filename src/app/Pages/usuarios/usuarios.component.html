@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <mat-card class="card" *ngIf="!cargando">
+                <mat-card-title>Usuarios</mat-card-title>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Cedula</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios" (click)="mostrarCreditos(usuario)">
+                                <th scope="row">{{usuario.cedula}}</th>
+                                <td>{{usuario.nombre}}</td>
+                                <td>{{usuario.correo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md col-creditos">
+            <mat-card class="card" *ngIf="mostrandoCreditos">
+                <mat-card-title>Creditos</mat-card-title>
+                <mat-card-content>
+                    <app-tabla-credito [tipo]="'usuario'" [(creditosUsuario)]="creditos" (verCredito)="mostrarCredito($event)"></app-tabla-credito>
+                </mat-card-content>
+            </mat-card>
+            <div class="creditosVacios centrado" *ngIf="!mostrandoCreditos && !cargando">
+                <label>Seleccione un usuario</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="creditoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="creditoModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Informacion del Credito</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <mat-list role="list">
+                    <label>Usuario:</label>
+                    <br>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Cedula:</label>
+                        <label>{{creditoModal.cedula}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Nombre:</label>
+                        <label>{{creditoModal.nombre}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Correo:</label>
+                        <label>{{creditoModal.correo}}</label>
+                    </mat-list-item>
+                    <label>Credito:</label>
+                    <br>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Estado de credito:</label>
+                        <label>{{creditoModal.estadoDeCredito | estadoCredito}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Monto solicitado:</label>
+                        <label>{{creditoModal.valorSolicitado}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista">
+                        <label>Pago de credito:</label>
+                        <label>{{creditoModal.pagoCredito | estadoPago}}</label>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" class="itemLista" *ngIf="creditoModal.fechaAPagar">
+                        <label>Fecha a pagar:</label>
+                        <label>{{creditoModal.fechaAPagar}}</label>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

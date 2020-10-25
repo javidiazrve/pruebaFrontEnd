@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label for="InputMontoSolicitud" class="labelForm">Monto de Solicitud</label>
+    <div class="container">
+        <div class="row">
+            <div class="col-10" style="padding: 0">
+                <input type="number" (keyup)="setMonto($event)" class="form-control" id="InputMontoSolicitud" aria-describedby="montoInfo">
+                <small id="montoInfo" class="form-text text-muted texto-abajo">Min: {{valorMinimo}} - Max: {{valorMaximo}}</small>
+            </div>
+            <div class="col">
+                <label class="labelDivisa">COP</label>
+            </div>
+        </div>
+    </div>
+</div>
